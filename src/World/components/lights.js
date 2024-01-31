@@ -19,6 +19,10 @@ function createLights() {
   // 灯光和目标的默认位置是我们场景的中心，$(0, 0, 0)$。
   light.position.set(10, 10, 10); // 将光线向右、向上移动并朝向我们
 
+  // 灯光无法旋转和缩放
+  // light.rotation.x = Math.PI / 4; // 设置角度
+  // light.scale = 0.5; // 缩放尺寸
+
   return light;
 }
 
