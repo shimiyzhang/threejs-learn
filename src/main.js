@@ -12,13 +12,4 @@ function main() {
   world.render();
 }
 
-const button = document.createElement("button");
-button.style.position = "absolute";
-button.style.top = "20px";
-button.style.left = "20px";
-button.innerText = "渲染场景";
-document.body.appendChild(button);
-
-button.onclick = () => {
-  main();
-};
+main();
