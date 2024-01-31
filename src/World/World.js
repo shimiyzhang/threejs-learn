@@ -27,6 +27,9 @@ class World {
 
     // 创建容器大小监听器
     const resizer = new Resizer(container, this.#camera, this.#renderer);
+    resizer.onResize = () => {
+      this.render(); // 渲染场景
+    }
   }
 
   render() {
