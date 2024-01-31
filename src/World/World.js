@@ -1,7 +1,8 @@
 import { createCamera } from "./components/camera.js";
 import { createCube } from "./components/cube.js";
-import { createSphere } from "./components/sphere.js";
+// import { createSphere } from "./components/sphere.js";
 import { createScene } from "./components/scene.js";
+import { createLights } from "./components/lights.js";
 
 import { createRenderer } from "./systems/renderer.js";
 import { Resizer } from "./systems/Resizer.js";
@@ -19,13 +20,10 @@ class World {
     // 将画布添加到容器中
     container.append(this.#renderer.domElement);
 
-    // 创建立方体
-    const cube = createCube();
-    this.#scene.add(cube);
-
-    // 创建球体
-    const sphere = createSphere();
-    this.#scene.add(sphere);
+    // 添加灯光
+    const light = createLights();
+    const cube = createCube(); // 创建立方体
+    this.#scene.add(cube, light);
 
     // 创建容器大小监听器
     const resizer = new Resizer(container, this.#camera, this.#renderer);
