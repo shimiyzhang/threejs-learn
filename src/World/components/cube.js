@@ -23,7 +23,8 @@ function createCube() {
   cube.rotation.set(-0.5, -0.1, 0.8);
 
   // 角度转弧度
-  const radiansPerSecond = MathUtils.degToRad(30);
+  const radiansPerSecond = MathUtils.degToRad(30); // 一秒五圈
+  // const radiansPerSecond = MathUtils.degToRad(600); // 一秒一百圈
 
   // 添加tick动画方法
   cube.tick = (delta) => {
@@ -31,6 +32,11 @@ function createCube() {
     cube.rotation.x += radiansPerSecond * delta;
     cube.rotation.y += radiansPerSecond * delta;
     cube.rotation.z += radiansPerSecond * delta;
+
+    // 每帧增加立方体的缩放
+    cube.scale.x = Math.sin(cube.rotation.x);
+    cube.scale.y = Math.sin(cube.rotation.y);
+    cube.scale.z = Math.sin(cube.rotation.z);
   };
 
   return cube;
