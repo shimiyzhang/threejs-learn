@@ -23,8 +23,9 @@ function createCube() {
   cube.rotation.set(-0.5, -0.1, 0.8);
 
   // 角度转弧度
-  const radiansPerSecond = MathUtils.degToRad(30); // 一秒五圈
-  // const radiansPerSecond = MathUtils.degToRad(600); // 一秒一百圈
+  const radiansPerSecond = MathUtils.degToRad(30); // 一秒30度
+  // const radiansPerSecond = MathUtils.degToRad(360); // 一秒1圈
+  // const radiansPerSecond = MathUtils.degToRad(3.6); // 100秒1圈
 
   // 添加tick动画方法
   cube.tick = (delta) => {
