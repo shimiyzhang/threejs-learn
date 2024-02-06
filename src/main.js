@@ -8,8 +8,11 @@ function main() {
   // 创建 World 应用程序的实例
   const world = new World(container);
 
-  // 渲染场景
-  world.render();
+  // 生成单帧（按需渲染）
+  // world.render();
+
+  // 开始循环（产生帧流）
+  world.start();
 }
 
 main();
