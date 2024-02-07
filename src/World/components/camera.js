@@ -11,12 +11,12 @@ function createCamera() {
 
   camera.position.set(0, 0, 10);
 
-  const shrinkageSpeed = 1; // 每秒一米
+  const shrinkageSpeed = 2; // 每秒2米
 
   camera.tick = (delta) => {
-    if (camera.position.z < 20) {
-      camera.position.z += shrinkageSpeed * delta;
-    }
+    // 相机反复缩小十米
+    camera.position.z =
+      ((camera.position.z + shrinkageSpeed * delta) % 10) + 10;
   };
 
   return camera;

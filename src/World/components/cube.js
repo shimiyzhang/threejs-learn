@@ -27,6 +27,9 @@ function createCube() {
   // const radiansPerSecond = MathUtils.degToRad(360); // 一秒1圈
   // const radiansPerSecond = MathUtils.degToRad(3.6); // 100秒1圈
 
+  // 平移速度
+  const shrinkageSpeed = 2; // 每秒2米
+
   // 添加tick动画方法
   cube.tick = (delta) => {
     // 每帧增加立方体的旋转
@@ -38,6 +41,12 @@ function createCube() {
     cube.scale.x = Math.sin(cube.rotation.x);
     cube.scale.y = Math.sin(cube.rotation.y);
     cube.scale.z = Math.sin(cube.rotation.z);
+
+    // 立方体在屏幕宽度内循环移动
+    cube.position.x = (cube.position.x + shrinkageSpeed * delta) % 15;
+    if (cube.position.x > 12 || cube.position < -12) {
+      cube.position.x = -cube.position.x;
+    }
   };
 
   return cube;
