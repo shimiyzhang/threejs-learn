@@ -29,6 +29,9 @@ class World {
     this.#scene.add(cube, light);
 
     this.#loop.updatables.push(cube); // 将立方体添加到循环中
+    this.#loop.updatables.push(this.#camera); // 将相机添加到循环中
+    this.#loop.updatables.push(light); // 将灯光添加到循环中
+
 
     // 创建容器大小监听器
     const resizer = new Resizer(container, this.#camera, this.#renderer);

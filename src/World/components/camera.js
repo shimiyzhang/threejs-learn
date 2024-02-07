@@ -11,6 +11,14 @@ function createCamera() {
 
   camera.position.set(0, 0, 10);
 
+  const shrinkageSpeed = 1; // 每秒一米
+
+  camera.tick = (delta) => {
+    if (camera.position.z < 20) {
+      camera.position.z += shrinkageSpeed * delta;
+    }
+  };
+
   return camera;
 }
 

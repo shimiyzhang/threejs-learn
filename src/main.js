@@ -13,6 +13,14 @@ function main() {
 
   // 开始循环（产生帧流）
   world.start();
+
+  container.addEventListener("mouseenter", () => {
+    world.start();
+  });
+
+  container.addEventListener("mouseleave", () => {
+    world.end();
+  });
 }
 
 main();

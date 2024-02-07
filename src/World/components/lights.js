@@ -19,6 +19,11 @@ function createLights() {
   // 灯光和目标的默认位置是我们场景的中心，$(0, 0, 0)$。
   light.position.set(10, 10, 10); // 将光线向右、向上移动并朝向我们
 
+  light.tick = (delta) => {
+    // 让灯光在x轴上来回移动
+    light.position.x = Math.sin(Date.now() * 0.001) * 100;
+  };
+
   return light;
 }
 
